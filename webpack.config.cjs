@@ -1,40 +1,43 @@
 const path = require("path");
-// webpack needs to be explicitly required
 const webpack = require("webpack");
 
 module.exports = {
-  stats: { errorDetails: true },
+  entry: "./src/index.ts",
+  optimization: {
+    minimize: true,
+  },
   target: "webworker",
   output: {
-    path: path.join(process.cwd(), "bin"),
     filename: "index.js",
-  },
-  // mode: 'production',
-  mode: "production",
-  devtool: "cheap-module-source-map",
-  optimization: {
-    sideEffects: true,
-    minimize: true
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js", ".json"],
-    fallback: {
-      url: require.resolve("core-js/")
-    },
-    mainFields: ['browser', 'module', 'main'],
+    path: path.resolve(__dirname, "bin"),
+    libraryTarget: "this",
   },
   module: {
+    // Asset modules are modules that allow the use asset files (fonts, icons, etc)
+    // without additional configuration or dependencies.
     rules: [
+      // asset/source exports the source code of the asset.
+      // Usage: e.g., import notFoundPage from "./page_404.html"
+      {
+        test: /\.(txt|html)/,
+        type: "asset/source",
+      },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: "/node_modules/",
-      }
+        exclude: /node_modules/,
+      },
     ],
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   plugins: [
+    // Polyfills go here.
+    // Used for, e.g., any cross-platform WHATWG,
+    // or core nodejs modules needed for your application.
     new webpack.ProvidePlugin({
-      process: "process/browser",
+      URL: "core-js/web/url",
     }),
   ],
 };
