@@ -1,12 +1,11 @@
 # This file describes a Fastly Compute@Edge package. To learn more visit:
 # https://developer.fastly.com/reference/fastly-toml/
 
-authors = ["jchampion@fastly.com"]
-description = ""
+authors = ["<oss@fastly.com>"]
+description = "A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules."
 language = "javascript"
 manifest_version = 2
-name = "ts-expressly"
-service_id = ""
+name = "Default starter for JavaScript"
 
 [scripts]
   build = "npm run build"
