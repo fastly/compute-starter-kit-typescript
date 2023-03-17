@@ -1,4 +1,4 @@
-# Default Starter Kit For Typescript
+# Default Starter Kit For TypeScript
 
 [![Deploy to Fastly](https://deploy.edgecompute.app/button)](https://deploy.edgecompute.app/deploy)
 
@@ -17,7 +17,7 @@ This starter is intentionally lightweight, and requires no dependencies aside fr
 
 The starter doesn't require the use of any backends. Once deployed, you will have a Fastly service running on Compute@Edge that can generate synthetic responses at the edge.
 
-The template uses webpack to bundle `index.js` and its imports into a single JS file, `bin/index.js`, which is then wrapped into a `.wasm` file, `bin/index.wasm` using the `js-compute-runtime` CLI tool bundled with the `@fastly/js-compute` npm package, and bundled into a `.tar.gz` file ready for deployment to Compute@Edge.
+The template uses TypeScript to compile source files in `./src` into JS files in `./build`, which are then wrapped into `./bin/index.wasm` using the `js-compute-runtime` CLI tool bundled with the `@fastly/js-compute` npm package, and bundled into a `.tar.gz` file ready for deployment to Compute@Edge.
 
 ## Security issues
 
