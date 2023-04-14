@@ -1,7 +1,14 @@
-/// <reference types="@fastly/js-compute" />
-
 //! Default Compute@Edge template program.
-import welcomePage from "./welcome-to-compute@edge.html";
+
+/// <reference types="@fastly/js-compute" />
+// import { CacheOverride } from "fastly:cache-override";
+// import { Logger } from "fastly:logger";
+import { env } from "fastly:env";
+import { includeBytes } from "fastly:experimental";
+
+// Load a static file as a Uint8Array at compile time.
+// File path is relative to root of project, not to this file
+const welcomePage = includeBytes("./src/welcome-to-compute@edge.html");
 
 // The entry point for your application.
 //
@@ -13,6 +20,9 @@ import welcomePage from "./welcome-to-compute@edge.html";
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
 async function handleRequest(event: FetchEvent) {
+  // Log service version
+  console.log("FASTLY_SERVICE_VERSION:", env('FASTLY_SERVICE_VERSION') || 'local');
+
   // Get the client request.
   let req = event.request;
 
@@ -41,6 +51,7 @@ async function handleRequest(event: FetchEvent) {
     // );
 
     // Create a cache override.
+    // To use this, uncomment the import statement at the top of this file for CacheOverride.
     // let cacheOverride = new CacheOverride("override", { ttl: 60 });
 
     // Forward the request to a backend.
@@ -53,7 +64,8 @@ async function handleRequest(event: FetchEvent) {
     // beresp.headers.delete("X-Another-Custom-Header");
 
     // Log to a Fastly endpoint.
-    // const logger = fastly.getLogger("my_endpoint");
+    // To use this, uncomment the import statement at the top of this file for Logger.
+    // const logger = new Logger("my_endpoint");
     // logger.log("Hello from the edge!");
 
     // Send a default synthetic response.

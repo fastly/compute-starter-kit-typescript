@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
     "strict": true,
-    "module": "ESNext",
-    "target": "ESNext",
+    "module": "ES2022",
+    "target": "ES2022",
     "moduleResolution": "node",
-    "skipLibCheck": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "WebWorker"]
+    "lib": [ "es2022" ],
+    "rootDir": "src",
+    "outDir": "build"
   },
-  "include": ["src", "types"]
+  "include": [
+    "./src/**/*.js",
+    "./src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
