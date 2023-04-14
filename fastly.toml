@@ -5,7 +5,7 @@ authors = ["<oss@fastly.com>"]
 description = "A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules."
 language = "javascript"
 manifest_version = 2
-name = "Default starter for Typescript"
+name = "Default starter for TypeScript"
 
 [scripts]
   build = "npm run build"
