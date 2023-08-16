@@ -1,4 +1,4 @@
-# This file describes a Fastly Compute@Edge package. To learn more visit:
+  # This file describes a Fastly Compute@Edge package. To learn more visit:
 # https://developer.fastly.com/reference/fastly-toml/
 
 authors = ["<oss@fastly.com>"]
@@ -9,3 +9,4 @@ name = "Default starter for TypeScript"
 
 [scripts]
 build = "npm run build"
+post_init = "npm install"
