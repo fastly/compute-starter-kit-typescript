@@ -1,17 +1,5 @@
 {
-  "name": "compute-starter-kit-typescript",
-  "version": "0.2.0",
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fastly/compute-starter-kit-typescript.git"
-  },
-  "author": "oss@fastly.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fastly/compute-starter-kit-typescript/issues"
-  },
-  "homepage": "https://developer.fastly.com/solutions/starters/compute-starter-kit-typescript",
   "engines": {
     "node": "^16 || >=18"
   },
@@ -19,7 +7,7 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@fastly/js-compute": "^3.0.0"
+    "@fastly/js-compute": "^3.4.0"
   },
   "scripts": {
     "prebuild": "tsc",
