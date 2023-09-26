@@ -7,7 +7,8 @@
     "esModuleInterop": true,
     "lib": [ "es2022" ],
     "rootDir": "src",
-    "outDir": "build"
+    "outDir": "build",
+    "skipLibCheck": true
   },
   "include": [
     "./src/**/*.js",
