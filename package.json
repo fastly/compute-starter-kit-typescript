@@ -4,6 +4,7 @@
     "node": "^16 || >=18"
   },
   "devDependencies": {
+    "@fastly/cli": "^10.14.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
@@ -12,6 +13,7 @@
   "scripts": {
     "prebuild": "tsc",
     "build": "js-compute-runtime build/index.js bin/main.wasm",
+    "start": "fastly compute serve",
     "deploy": "fastly compute publish"
   }
 }
